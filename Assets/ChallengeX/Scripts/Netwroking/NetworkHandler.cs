@@ -7,6 +7,9 @@ using UnityEngine.Networking;
 
 public static class NetworkHandler
 {
+
+    #region Create WebRequested
+
     /// <summary>
     /// Creatiung R
     /// </summary>
@@ -19,7 +22,6 @@ public static class NetworkHandler
         do
         {
             using UnityWebRequest request = CreateRequest(options);
-            bool IsNetworkError = request.isNetworkError;
             AsyncOperation sendRequest = request.SendWebRequestWithOptions(options);
             if (options.ProgressCallback == null)
             {
@@ -43,7 +45,7 @@ public static class NetworkHandler
                 callback(null, response);
                 break;
             }
-            if (!options.IsAborted && retries < options.Retries && (!options.RetryCallbackOnlyOnNetworkErrors || IsNetworkError))
+            if (!options.IsAborted && retries < options.Retries && (!options.RetryCallbackOnlyOnNetworkErrors ))
             {
                 if (options.RetryCallback != null)
                 {
@@ -61,13 +63,14 @@ public static class NetworkHandler
         while (retries <= options.Retries);
     }
 
-
     public static IEnumerator UnityWebRequest(WebRequestHelper options, Action<ExceptionHandler, ResponseHelper> callback)
     {
         return CreateRequestAndRetry(options, callback);
     }
 
+    #endregion
 
+    #region WEBREQUEST CONFIGS
 
     /// <summary>
     /// Creates Unity WebRequests Based on Data
@@ -84,13 +87,9 @@ public static class NetworkHandler
         return new UnityWebRequest(requestdata.Uri, requestdata.Method);
     }
 
-    #region WEBREQUEST CONFIGS
-
     public static bool IsValidRequest(this UnityWebRequest request, WebRequestHelper options)
     {
-        bool isNetworkError = request.isNetworkError;
-        bool isHttpError = request.isHttpError;
-        return request.isDone && !isNetworkError && (!isHttpError);
+        return request.isDone;
     }
 
     private static ExceptionHandler CreateException(WebRequestHelper options, UnityWebRequest request)
@@ -105,7 +104,12 @@ public static class NetworkHandler
         return new ResponseHelper(request);
     }
 
-
+    /// <summary>
+    /// Async operation for WebRequest 
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="options"></param>
+    /// <returns></returns>
     public static AsyncOperation SendWebRequestWithOptions(this UnityWebRequest request, WebRequestHelper options)
     {
         byte[] bodyRaw = options.BodyRaw;
@@ -148,6 +152,12 @@ public static class NetworkHandler
         return request.Send();
     }
 
+    /// <summary>
+    /// Settingup content type
+    /// </summary>
+    /// <param name="bodyRaw"></param>
+    /// <param name="options"></param>
+    /// <returns></returns>
     private static string GetFormSectionsContentType(out byte[] bodyRaw, WebRequestHelper options)
     {
         byte[] array = UnityEngine.Networking.UnityWebRequest.GenerateBoundary();
@@ -159,6 +169,13 @@ public static class NetworkHandler
         return "multipart/form-data; boundary=" + Encoding.UTF8.GetString(array);
     }
 
+    /// <summary>
+    /// Setting up handlers
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="bodyRaw"></param>
+    /// <param name="contentType"></param>
+    /// <param name="options"></param>
     private static void ConfigureWebRequestWithOptions(UnityWebRequest request, byte[] bodyRaw, string contentType, WebRequestHelper options)
     {
         if (options.UploadHandler != null)

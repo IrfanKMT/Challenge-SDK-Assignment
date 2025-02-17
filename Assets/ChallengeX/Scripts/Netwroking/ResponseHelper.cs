@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-
+#region RESPONCE HANDLER
 [Serializable]
 public class ResponseHelper
 {
@@ -50,14 +50,6 @@ public class ResponseHelper
     {
         Request = request;
     }
-
-    public string GetHeader(string name)
-    {
-        return Request.GetResponseHeader(name);
-    }
-
-    public override string ToString()
-    {
-        return JsonUtility.ToJson(this, prettyPrint: true);
-    }
 }
+
+#endregion

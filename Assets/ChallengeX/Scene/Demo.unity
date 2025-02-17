@@ -4792,11 +4792,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 20
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 20
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 4
@@ -8543,7 +8543,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 35
+    m_Top: 60
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
@@ -8738,7 +8738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 30.249985}
+  m_AnchoredPosition: {x: -50.416374, y: 30.249985}
   m_SizeDelta: {x: 166.5403, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &834027050
@@ -8792,7 +8792,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 20
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 4
@@ -9254,7 +9254,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 42}
-  m_SizeDelta: {x: 160, y: 50}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &857005743
 MonoBehaviour:
@@ -9434,11 +9434,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 20
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 20
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 4
@@ -13160,7 +13160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 366, y: -1}
+  m_AnchoredPosition: {x: 361.79016, y: 49.277588}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1151880022
@@ -13748,7 +13748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -102.71983, y: -5.3934174}
+  m_AnchoredPosition: {x: -148.78757, y: 44.88417}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225183930
@@ -15628,7 +15628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -394.07547, y: 30.249985}
+  m_AnchoredPosition: {x: -453, y: 30.249985}
   m_SizeDelta: {x: 166.5403, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1369600728
@@ -15682,7 +15682,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 20
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 4
@@ -15765,7 +15765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -116.4, y: 0}
+  m_AnchoredPosition: {x: -162.46773, y: 20.928947}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1375319451
@@ -16736,13 +16736,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed39131cb147b684ab3bc6f2b0ce3d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_result_text: {fileID: 1332551789}
+  ResultPanel: {fileID: 2074084866}
+  ResultText: {fileID: 1332551789}
   ChallengeName: {fileID: 1989230890}
   ChallengeDescription: {fileID: 461754393}
   GameID: {fileID: 1375319451}
   Wager: {fileID: 1728920920}
   Target: {fileID: 715098903}
-  ChallengeCreator: {fileID: 1151880022}
   AllowSideBets: {fileID: 1015194098}
   IsPrivate: {fileID: 406360129}
   Currency: {fileID: 1225183930}
@@ -16755,10 +16755,12 @@ MonoBehaviour:
   YearEnd: {fileID: 392351091}
   verified_curruncy: 0
   chellenge_categories: 0
-  m_url: https://dummyjson.com/c/28e0-2e43-4287-a67b
+  m_url: https://dummyjson.com/c/eb3d-d728-4cdf-ab19
   Challenge:
     ChallengeName: 
     ChallengeDescription: 
+    StartDate: 0
+    EndDate: 0
     GameID: 0
     MaxParticipants: 0
     Wager: 0
@@ -19751,7 +19753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 329.7, y: 0}
+  m_AnchoredPosition: {x: 233.35469, y: 25.138794}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728920920
@@ -23349,7 +23351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -116.4, y: 0}
+  m_AnchoredPosition: {x: -107.9803, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989230890
@@ -23910,11 +23912,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 20
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 20
   m_fontSizeMax: 20
   m_fontStyle: 1
   m_HorizontalAlignment: 4

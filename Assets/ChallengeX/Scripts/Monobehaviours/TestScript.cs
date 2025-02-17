@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class TestScript : MonoBehaviour
 {
-
-
-
-    public TextMeshProUGUI m_result_text;
+    #region VARIABLES
+    [Header("UI PART")]
+    public GameObject ResultPanel;
+    public TextMeshProUGUI ResultText;
     [Space]
     [Header("Input Fields")]
     public TMP_InputField ChallengeName;
@@ -36,15 +36,20 @@ public class TestScript : MonoBehaviour
     [Space]
     public VERIFIED_CURRENCY verified_curruncy;
     public CHALLENGE_CATEGORIES chellenge_categories;
+
     [Space]
+    [Header("URL")]
     public string m_url;
 
-
+    [Header("USER CHALLENGE DATA")]
     public CreateChallengeDto Challenge;
 
-    ChallengeSDK _sdk;
+
     string jwtToken = "your_jwt_token_here";
 
+    #endregion
+
+    #region UNITYMETHDOS
     private async void Start()
     {
         PopulateDropDownWithEnum(ChallengeCategory, chellenge_categories);
@@ -92,13 +97,11 @@ public class TestScript : MonoBehaviour
 
         YearEnd.ClearOptions();//Clear old options
         YearEnd.AddOptions(newOptions);//Add new options
-
-        ////ChallengeSDK _sdk = new ChallengeSDK(m_url);
-        ////string jwtToken = "your_jwt_token_here";
-
-        ////SubmitChallegeData();
-        //GetChallengeData();
     }
+
+    #endregion
+
+    #region INPUT FIELDS
 
     public static void PopulateDropDownWithEnum(TMP_Dropdown dropdown, Enum targetEnum)//You can populate any dropdown with any enum with this method
     {
@@ -114,52 +117,87 @@ public class TestScript : MonoBehaviour
         dropdown.AddOptions(newOptions);//Add new options
     }
 
-
-
-    public async void SubmitChallegeData()
-    {
-        GetDataFromInput();
-        _sdk = new ChallengeSDK(m_url);
-        await _sdk.CreateChallenge(Challenge, jwtToken);
-    }
-
-
-
-    public async void GetChallengeData()
-    {
-        _sdk = new ChallengeSDK(m_url);
-        await _sdk.GetChallengeData(jwtToken);
-    }
-
     void GetDataFromInput()
     {
         Challenge = new CreateChallengeDto();
         Challenge.ChallengeName = ChallengeName.text;
         Challenge.ChallengeDescription = ChallengeDescription.text;
 
-
-
-
         Challenge.StartDate = DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text), int.Parse(MonthStart.captionText.text), int.Parse(DayStart.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
         Challenge.EndDate = DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(YearEnd.captionText.text), int.Parse(MonthEnd.captionText.text), int.Parse(DayEnd.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
 
-        if (GameID.text == "")
+        if (!string.IsNullOrEmpty(GameID.text))
         {
-            GameID.text = "0";
+            Challenge.GameID = int.Parse(GameID.text);
         }
-        Challenge.GameID = int.Parse(GameID.text);
-        if (Wager.text == "")
+
+        if (!string.IsNullOrEmpty(GameID.text))
         {
-            Wager.text = "0";
+            Challenge.Wager = int.Parse(Wager.text);
         }
-        Challenge.Wager = int.Parse(Wager.text);
+
+
         //Challenge.Target = int.Parse(Target.text);
         Challenge.Currency = (VERIFIED_CURRENCY)(Currency.value);
         Challenge.ChallengeCategory = (CHALLENGE_CATEGORIES)ChallengeCategory.value;
-
-
         Debug.Log(JsonUtility.ToJson(Challenge));
-
-
     }
+    #endregion
+
+    #region Button calls
+    public async void SubmitChallegeData()
+    {
+        GetDataFromInput();
+        ChallengeSDK SKD = new ChallengeSDK(m_url);
+
+        await SKD.CreateChallenge(Challenge, jwtToken, (error, response) =>
+        {
+
+            Debug.Log("This Worked");
+
+            ResultPanel.SetActive(true);
+
+            if (error != null)
+            {
+                //FAILED
+                Debug.LogError($"Request failed: {error.Message}");
+                ResultText.text = error.Message;
+            }
+            else
+            {
+                //SUCCESS
+                Debug.Log($"Request succeeded: {response.Text}");
+                ResultText.text = response.Text;
+
+            }
+        });
+    }
+
+    public async void GetChallengeData()
+    {
+        ChallengeSDK SKD = new ChallengeSDK(m_url);
+
+
+        await SKD.GetChallengeData(jwtToken, (error, response) =>
+        {
+
+            ResultPanel.SetActive(true);
+
+            if (error != null)
+            {
+                //FAILED
+                Debug.LogError($"Request failed: {error.Message}");
+                ResultText.text = error.Message;
+            }
+            else
+            {
+                //SUCCESS
+                Debug.Log($"Request succeeded: {response.Text}");
+                ResultText.text = response.Text;
+
+            }
+        });
+    }
+
+    #endregion
 }

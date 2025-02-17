@@ -1,10 +1,5 @@
-#region Assembly Proyecto26.RestClient, Version=2.6.2.0, Culture=neutral, PublicKeyToken=null
-// D:\TestProjects\RestClient\demo\Assets\Packages\Proyecto26.RestClient.2.6.2\lib\net35\Proyecto26.RestClient.dll
-// Decompiled with ICSharpCode.Decompiler 8.1.1.7464
-#endregion
 
 using System;
-
 public class ExceptionHandler : Exception
 {
     private WebRequestHelper _request;

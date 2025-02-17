@@ -1,5 +1,18 @@
 # Challenge-SDK-Assignment
 
+
+![RESET API HELPER](https://github.com/IrfanKMT/Challenge-SDK-Assignment/images/URL.png?raw=true)
+
+
+## Error Handling
+
+- Network Errors: Captured by checking if error is not null.
+
+- Invalid Responses: Handled by checking response.statusCode within the callback.
+
+- Authentication Errors: Ensure that a valid jwtToken is passed during the request.
+
+
 ## Features 🎮
 - Make **HTTP** requests from Unity
 - Supports **HTTPS/SSL**
