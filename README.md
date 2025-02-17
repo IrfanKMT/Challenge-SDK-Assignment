@@ -2,7 +2,8 @@
 
 
 ![RESET API HELPER](https://github.com/IrfanKMT/Challenge-SDK-Assignment/blob/main/Images/URL.png)
-(https://github.com/IrfanKMT/Challenge-SDK-Assignment/blob/main/Images/Menu.png)
+![](https://github.com/IrfanKMT/Challenge-SDK-Assignment/blob/main/Images/Menu.png)
+
 
 - Please add URL for POST and GET API
 
