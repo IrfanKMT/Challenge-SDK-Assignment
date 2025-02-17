@@ -54,8 +54,9 @@ public class ChallengeSDK
             {
                 //SUCCESS
                 Debug.Log($"Request succeeded: {response.Text}");
-
             }
+
+            callback(error, response);
         });
     }
 
@@ -88,6 +89,8 @@ public class ChallengeSDK
                 //SUCCESS
                 Debug.Log($"Request succeeded: {response.Text}");
             }
+
+            callback(error, response);
         });
     }
 

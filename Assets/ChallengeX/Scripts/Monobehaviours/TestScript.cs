@@ -152,9 +152,6 @@ public class TestScript : MonoBehaviour
 
         await SKD.CreateChallenge(Challenge, jwtToken, (error, response) =>
         {
-
-            Debug.Log("This Worked");
-
             ResultPanel.SetActive(true);
 
             if (error != null)

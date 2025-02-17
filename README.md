@@ -12,6 +12,49 @@
 
 - Authentication Errors: Ensure that a valid jwtToken is passed during the request.
 
+## Important Methods
+ - ChallengeSDK Class  CreateChallenge
+The default methods **(GET, POST, PUT, DELETE, HEAD)** are:
+```csharp
+    public async Task CreateChallenge(CreateChallengeDto challenge, string jwtToken, Action<ExceptionHandler, ResponseHelper> callback)
+    {
+
+        WebRequestHelper _web = new WebRequestHelper
+        {
+            Uri = _url,
+            BodyString = JsonUtility.ToJson(challenge),
+            Headers = new Dictionary<string, string> {
+                    { "Authorization", jwtToken }
+                }
+        };
+
+        await Post(_web, (error, response) =>
+        {
+            callback(error, response);
+        });
+    }
+
+
+    public async Task Post(WebRequestHelper options, Action<ExceptionHandler, ResponseHelper> callback)
+    {
+        options.Method = "POST";
+        await Task.Run(() => Request(options, callback));
+    }
+
+    public async Task Get(WebRequestHelper options, Action<ExceptionHandler, ResponseHelper> callback)
+    {
+        options.Method = "GET";
+        await Task.Run(() => Request(options, callback));
+    }
+
+    public static void Request(WebRequestHelper options, Action<ExceptionHandler, ResponseHelper> callback)
+    {
+        StaticCoroutine.StartCoroutine(NetworkHandler.UnityWebRequest(options, callback));
+    }
+
+```csharp
+
+
 
 ## Features 🎮
 - Make **HTTP** requests from Unity
