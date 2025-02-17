@@ -45,17 +45,6 @@ public class ChallengeSDK
 
         await Post(_web, (error, response) =>
         {
-            if (error != null)
-            {
-                //FAILED
-                Debug.LogError($"Request failed: {error.Message}");
-            }
-            else
-            {
-                //SUCCESS
-                Debug.Log($"Request succeeded: {response.Text}");
-            }
-
             callback(error, response);
         });
     }
@@ -79,17 +68,6 @@ public class ChallengeSDK
 
         await Get(_web, (error, response) =>
         {
-            if (error != null)
-            {
-                //FAILED
-                Debug.LogError($"Request failed: {error.Message}");
-            }
-            else
-            {
-                //SUCCESS
-                Debug.Log($"Request succeeded: {response.Text}");
-            }
-
             callback(error, response);
         });
     }

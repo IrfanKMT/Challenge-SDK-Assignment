@@ -2,7 +2,14 @@
 
 
 ![RESET API HELPER](https://github.com/IrfanKMT/Challenge-SDK-Assignment/blob/main/Images/URL.png)
+(https://github.com/IrfanKMT/Challenge-SDK-Assignment/blob/main/Images/Menu.png)
 
+- Please add URL for POST and GET API
+
+# Setup
+- Clone this repository
+- Open the Unity project in Unity Editor.
+- Update the post_url & get_url  variable in the code to point to your server endpoint.
 
 ## Error Handling
 
@@ -52,7 +59,8 @@ The default methods **(GET, POST, PUT, DELETE, HEAD)** are:
         StaticCoroutine.StartCoroutine(NetworkHandler.UnityWebRequest(options, callback));
     }
 
-```csharp
+```
+csharp
 
 
 

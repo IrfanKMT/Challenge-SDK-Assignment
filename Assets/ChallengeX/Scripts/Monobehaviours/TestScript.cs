@@ -39,7 +39,8 @@ public class TestScript : MonoBehaviour
 
     [Space]
     [Header("URL")]
-    public string m_url;
+    public string post_url;
+    public string get_url;
 
     [Header("USER CHALLENGE DATA")]
     public CreateChallengeDto Challenge;
@@ -148,7 +149,7 @@ public class TestScript : MonoBehaviour
     public async void SubmitChallegeData()
     {
         GetDataFromInput();
-        ChallengeSDK SKD = new ChallengeSDK(m_url);
+        ChallengeSDK SKD = new ChallengeSDK(post_url);
 
         await SKD.CreateChallenge(Challenge, jwtToken, (error, response) =>
         {
@@ -172,7 +173,7 @@ public class TestScript : MonoBehaviour
 
     public async void GetChallengeData()
     {
-        ChallengeSDK SKD = new ChallengeSDK(m_url);
+        ChallengeSDK SKD = new ChallengeSDK(get_url);
 
 
         await SKD.GetChallengeData(jwtToken, (error, response) =>
