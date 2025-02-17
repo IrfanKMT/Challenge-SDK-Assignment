@@ -70,8 +70,7 @@ csharp
 - Supports **HTTPS/SSL**
 - Built on top of **[UnityWebRequest](https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequest.html)** system
 - Transform request and response data (**JSON** serialization with **[JsonUtility](https://docs.unity3d.com/ScriptReference/JsonUtility.html)** or other tools)
-- Supports default **HTTP** Methods **(GET, POST, PUT, DELETE, HEAD, PATCH)**
-- Generic **REQUEST** method to create any http request
+- Supports default **HTTP** Methods **(GET, POST)**
 - Ability to work during scene transition
 - Handle HTTP exceptions and retry requests easily
 
