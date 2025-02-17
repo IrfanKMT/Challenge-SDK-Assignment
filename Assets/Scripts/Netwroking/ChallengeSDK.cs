@@ -85,13 +85,24 @@ public class ChallengeSDK
         });
     }
 
-
+    /// <summary>
+    /// TASK FOR POST API
+    /// </summary>
+    /// <param name="options"></param>
+    /// <param name="callback"></param>
+    /// <returns></returns>
     public async Task Post(WebRequestHelper options, Action<ExceptionHandler, ResponseHelper> callback)
     {
         options.Method = "POST";
         await Task.Run(() => Request(options, callback));
     }
 
+    /// <summary>
+    /// TASK FOR Get API
+    /// </summary>
+    /// <param name="options"></param>
+    /// <param name="callback"></param>
+    /// <returns></returns>
     public async Task Get(WebRequestHelper options, Action<ExceptionHandler, ResponseHelper> callback)
     {
         options.Method = "GET";
