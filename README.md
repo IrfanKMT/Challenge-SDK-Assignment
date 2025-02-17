@@ -1,7 +1,7 @@
 # Challenge-SDK-Assignment
 
 
-![RESET API HELPER](https://github.com/IrfanKMT/Challenge-SDK-Assignment/images/URL.png?raw=true)
+![RESET API HELPER](https://github.com/IrfanKMT/Challenge-SDK-Assignment/blob/main/Images/URL.png)
 
 
 ## Error Handling
