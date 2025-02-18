@@ -7,7 +7,8 @@ using UnityEngine;
 public class ChallengeSDK
 {
     #region Variables
-    private string _url;
+    private string url;
+    private string token;
 
     //public bool Success;
     //public ResponseHelper ResponseHelper;
@@ -16,9 +17,16 @@ public class ChallengeSDK
     #endregion
 
     #region Methods
-    public ChallengeSDK(string _url)
+
+    public ChallengeSDK(string url)
     {
-        this._url = _url;
+        this.url = url;
+    }
+
+    public ChallengeSDK(string url, string token)
+    {
+        this.url = url;
+        this.token = token;
     }
 
 
@@ -28,18 +36,17 @@ public class ChallengeSDK
     /// Object reference of user data
     /// <param name="challenge"></param>
     /// Token
-    /// <param name="jwtToken"></param>
     /// Please change String "Authorization" in Token
     /// <returns></returns>
-    public async Task CreateChallenge(CreateChallengeDto challenge, string jwtToken, Action<ExceptionHandler, ResponseHelper> callback)
+    public async Task CreateChallenge(CreateChallengeDto challenge, Action<ExceptionHandler, ResponseHelper> callback)
     {
 
         WebRequestHelper _web = new WebRequestHelper
         {
-            Uri = _url,
+            Uri = url,
             BodyString = JsonUtility.ToJson(challenge),
             Headers = new Dictionary<string, string> {
-                    { "Authorization", jwtToken }
+                    { "Authorization", token }
                 }
         };
 
@@ -53,16 +60,15 @@ public class ChallengeSDK
     /// GET CHALLENGE DATA
     /// </summary>
     /// Token
-    /// <param name="jwtToken"></param>
     /// Please change String "Authorization" in Token
     /// <returns></returns>
-    public async Task GetChallengeData(string jwtToken, Action<ExceptionHandler, ResponseHelper> callback)
+    public async Task GetChallengeData(Action<ExceptionHandler, ResponseHelper> callback)
     {
         WebRequestHelper _web = new WebRequestHelper
         {
-            Uri = _url,
+            Uri = url,
             Headers = new Dictionary<string, string> {
-                    { "Authorization", jwtToken }
+                    { "Authorization", token }
                 }
         };
 

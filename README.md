@@ -11,6 +11,22 @@
 - Clone this repository
 - Open the Unity project in Unity Editor.
 - Update the post_url & get_url  variable in the code to point to your server endpoint.
+- Easy Setup: Instantiate ChallengeSDK with the API base URL and authentication token.
+
+```csharp
+    public ChallengeSDK(string url)
+    {
+        this.url = url;
+    }
+
+    public ChallengeSDK(string url, string token)
+    {
+        this.url = url;
+        this.token = token;
+    }
+```csharp
+
+- Challenge Creation: Provides a CreateChallenge method to send challenge data to the backend.
 
 ## Error Handling
 
@@ -24,20 +40,20 @@
  - ChallengeSDK Class  CreateChallenge
 The default methods **(GET, POST, PUT, DELETE, HEAD)** are:
 ```csharp
-    public async Task CreateChallenge(CreateChallengeDto challenge, string jwtToken, Action<ExceptionHandler, ResponseHelper> callback)
+    public async Task CreateChallenge(CreateChallengeDto challenge, Action<ExceptionHandler, ResponseHelper> callback)
     {
 
         WebRequestHelper _web = new WebRequestHelper
         {
-            Uri = _url,
+            Uri = url,
             BodyString = JsonUtility.ToJson(challenge),
             Headers = new Dictionary<string, string> {
-                    { "Authorization", jwtToken }
+                 { "Authorization", token }
                 }
         };
 
         await Post(_web, (error, response) =>
-        {
+         {
             callback(error, response);
         });
     }
@@ -72,7 +88,8 @@ csharp
 - Transform request and response data (**JSON** serialization with **[JsonUtility](https://docs.unity3d.com/ScriptReference/JsonUtility.html)** or other tools)
 - Supports default **HTTP** Methods **(GET, POST)**
 - Ability to work during scene transition
-- Handle HTTP exceptions and retry requests easily
+- Asynchronous Handling: Uses UnityWebRequest and a coroutine helper (CoroutineRunner) to manage async requests.
+
 
 
 ## Supported platforms 📱 🖥 

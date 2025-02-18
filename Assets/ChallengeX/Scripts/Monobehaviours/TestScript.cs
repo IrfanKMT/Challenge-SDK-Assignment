@@ -149,9 +149,9 @@ public class TestScript : MonoBehaviour
     public async void SubmitChallegeData()
     {
         GetDataFromInput();
-        ChallengeSDK SKD = new ChallengeSDK(post_url);
+        ChallengeSDK SKD = new ChallengeSDK(post_url, jwtToken);
 
-        await SKD.CreateChallenge(Challenge, jwtToken, (error, response) =>
+        await SKD.CreateChallenge(Challenge, (error, response) =>
         {
             ResultPanel.SetActive(true);
 
@@ -166,17 +166,16 @@ public class TestScript : MonoBehaviour
                 //SUCCESS
                 Debug.Log($"Request succeeded: {response.Text}");
                 ResultText.text = response.Text;
-
             }
         });
     }
 
     public async void GetChallengeData()
     {
-        ChallengeSDK SKD = new ChallengeSDK(get_url);
+        ChallengeSDK SKD = new ChallengeSDK(get_url, jwtToken);
 
 
-        await SKD.GetChallengeData(jwtToken, (error, response) =>
+        await SKD.GetChallengeData((error, response) =>
         {
 
             ResultPanel.SetActive(true);
