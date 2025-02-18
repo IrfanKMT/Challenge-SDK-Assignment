@@ -13,7 +13,7 @@
 - Update the post_url & get_url  variable in the code to point to your server endpoint.
 - Easy Setup: Instantiate ChallengeSDK with the API base URL and authentication token.
 
-```csharp
+```
     public ChallengeSDK(string url)
     {
         this.url = url;
@@ -24,6 +24,7 @@
         this.url = url;
         this.token = token;
     }
+```
 
 - Challenge Creation: Provides a CreateChallenge method to send challenge data to the backend.
 
@@ -37,8 +38,10 @@
 
 ## Important Methods
  - ChallengeSDK Class  CreateChallenge
-The default methods **(GET, POST, PUT, DELETE, HEAD)** are:
-```csharp
+The default methods **(GET, POST)** are:
+
+
+```
     public async Task CreateChallenge(CreateChallengeDto challenge, Action<ExceptionHandler, ResponseHelper> callback)
     {
 
@@ -76,7 +79,6 @@ The default methods **(GET, POST, PUT, DELETE, HEAD)** are:
     }
 
 ```
-csharp
 
 
 
