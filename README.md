@@ -24,7 +24,6 @@
         this.url = url;
         this.token = token;
     }
-csharp
 
 - Challenge Creation: Provides a CreateChallenge method to send challenge data to the backend.
 
