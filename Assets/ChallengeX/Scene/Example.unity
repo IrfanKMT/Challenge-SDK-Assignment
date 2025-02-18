@@ -16755,7 +16755,8 @@ MonoBehaviour:
   YearEnd: {fileID: 392351091}
   verified_curruncy: 0
   chellenge_categories: 0
-  m_url: https://dummyjson.com/c/eb3d-d728-4cdf-ab19
+  post_url: https://ded3896.inmotionhosting.com/~mobile/mobile_team/health-care-laravel/public/api/v1/challenges
+  get_url: 
   Challenge:
     ChallengeName: 
     ChallengeDescription: 

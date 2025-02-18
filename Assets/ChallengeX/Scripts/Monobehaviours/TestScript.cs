@@ -124,8 +124,8 @@ public class TestScript : MonoBehaviour
         Challenge.ChallengeName = ChallengeName.text;
         Challenge.ChallengeDescription = ChallengeDescription.text;
 
-        Challenge.StartDate = DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text), int.Parse(MonthStart.captionText.text), int.Parse(DayStart.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
-        Challenge.EndDate = DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(YearEnd.captionText.text), int.Parse(MonthEnd.captionText.text), int.Parse(DayEnd.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
+        Challenge.StartDate = (int)(DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text), int.Parse(MonthStart.captionText.text), int.Parse(DayStart.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds);
+        Challenge.EndDate = (int)(DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(YearEnd.captionText.text), int.Parse(MonthEnd.captionText.text), int.Parse(DayEnd.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds);
 
         if (!string.IsNullOrEmpty(GameID.text))
         {
@@ -139,8 +139,8 @@ public class TestScript : MonoBehaviour
 
 
         //Challenge.Target = int.Parse(Target.text);
-        Challenge.Currency = (VERIFIED_CURRENCY)(Currency.value);
-        Challenge.ChallengeCategory = (CHALLENGE_CATEGORIES)ChallengeCategory.value;
+        Challenge.Currency = (Currency.captionText.text);
+        Challenge.ChallengeCategory = ChallengeCategory.captionText.text;
         Debug.Log(JsonUtility.ToJson(Challenge));
     }
     #endregion
