@@ -57,6 +57,9 @@ public class TestScript : MonoBehaviour
         PopulateDropDownWithEnum(Currency, verified_curruncy);
 
 
+        //Debug.Log((DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text), int.Parse(MonthStart.captionText.text), int.Parse(DayStart.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds));
+
+
         List<TMP_Dropdown.OptionData> newOptions = new List<TMP_Dropdown.OptionData>();
 
         for (int i = 1; i < 32; i++)
@@ -124,8 +127,24 @@ public class TestScript : MonoBehaviour
         Challenge.ChallengeName = ChallengeName.text;
         Challenge.ChallengeDescription = ChallengeDescription.text;
 
-        Challenge.StartDate = (int)(DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text), int.Parse(MonthStart.captionText.text), int.Parse(DayStart.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds);
-        Challenge.EndDate = (int)(DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(YearEnd.captionText.text), int.Parse(MonthEnd.captionText.text), int.Parse(DayEnd.captionText.text), 10, 1, 0, 0, DateTimeKind.Utc)).TotalMilliseconds);
+        Debug.Log((DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text),
+            int.Parse(MonthStart.captionText.text),
+            int.Parse(DayStart.captionText.text),
+            10, 1, 0, 0, DateTimeKind.Utc)).TotalHours));
+
+
+        double startdate = (DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(Yeartart.captionText.text),
+            int.Parse(MonthStart.captionText.text),
+            int.Parse(DayStart.captionText.text),
+            10, 1, 0, 0, DateTimeKind.Utc)).TotalHours);
+
+        double enddate = (DateTime.Now.ToUniversalTime().Subtract(new DateTime(int.Parse(YearEnd.captionText.text),
+            int.Parse(MonthEnd.captionText.text),
+            int.Parse(DayEnd.captionText.text),
+            10, 1, 0, 0, DateTimeKind.Utc)).TotalHours);
+
+        Challenge.StartDate = Convert.ToInt32(startdate);
+        Challenge.EndDate = Convert.ToInt32(enddate);
 
         if (!string.IsNullOrEmpty(GameID.text))
         {

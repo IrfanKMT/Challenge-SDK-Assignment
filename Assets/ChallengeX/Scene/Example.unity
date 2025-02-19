@@ -14950,10 +14950,10 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -16775,6 +16775,7 @@ MonoBehaviour:
     ChallengeCategory: 0
     NFTMedia: 
     Media: 
+    ActualStartDate: 0
     UserAddress: 
 --- !u!4 &1453159360
 Transform:
